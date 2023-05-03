@@ -1,0 +1,110 @@
+{% extends 'intro.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div style='background-color: #A6BEED' class=" ">
+    <div id="reg">
+        <div class="d-lg-flex text-white min-h-100vh  overlay-opacity-5">
+            <div class="col-12 col-lg-4 d-lg-flex">
+            </div>
+            <div class="col-12 col-lg-8 d-lg-flex">
+                    <div class="bs-validate p-5 align-self-center rounded d-inline-block bg-white text-dark w-100 max-w-600">
+                        <input v-model="name" type="text" class="form-control form-control-sm mb-3"
+                               :class="{ 'is-invalid': nisinvalid }" placeholder="Name">
+                        <input v-model="surname" type="text" class="form-control form-control-sm mb-3"
+                               :class="{ 'is-invalid': sisinvalid }" placeholder="Surname">
+                        <input type="text" placeholder="Birth date" :class="{ 'is-invalid': bisinvalid }"
+                               class="get form-control datepicker"
+                               data-layout-rounded="false"
+                               data-show-weeks="true"
+                               data-today-highlight="true"
+                               data-today-btn="true"
+                               data-clear-btn="false"
+                               data-autoclose="true"
+                               data-format="MM/DD/YYYY"
+                               v-bind:data-quick-locale='{
+															"days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+															"daysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+															"daysMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+															"months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+															"monthsShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+															"today": "Today",
+															"clear": "Clear",
+															"titleFormat": "MM yyyy"
+														}'>
+                        <br>
+                        <select v-model="sex" class="form-control bs-select js-bselectified mb-3"
+                                :class="{ 'is-invalid': sisinvalid }" data-style="select-form-control border"
+                                tabindex="null">
+                            <option value="0">--- Sex ---</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">prefer not to say</option>
+                        </select>
+                        <div class="row">
+                            <div class="col-12 col-lg-5">
+                                <input v-model="code" type="text" class="form-control form-control-sm mb-3"
+                                       :class="{ 'is-invalid': cisinvalid }" placeholder="Phone country code">
+                            </div>
+                            <div class="col-12 col-lg-7">
+                                <input v-model="phone" type="text" class="form-control form-control-sm mb-3"
+                                       :class="{ 'is-invalid': pisinvalid }" placeholder="Phone number">
+                            </div>
+                        </div>
+                        <input v-model="email" type="text" class="form-control form-control-sm mb-3"
+                               :class="{ 'is-invalid': eisinvalid }" placeholder="Email">
+                        <select v-model="shrt" class="form-control bs-select js-bselectified mb-3"
+                                :class="{ 'is-invalid': shisinvalid }" data-style="select-form-control border"
+                                tabindex="null">
+                            <option value="0">--- Size of T-Shirt ---</option>
+                            <option value="1">S</option>
+                            <option value="2">M</option>
+                            <option value="3">L</option>
+                        </select>
+                        <select v-model="dog" class="form-control bs-select js-bselectified mb-3"
+                                :class="{ 'is-invalid': disinvalid }" data-style="select-form-control border"
+                                tabindex="null">
+                            <option value="0">--- Are you going to run together with your dog? ---</option>
+                            <option value="1">YES</option>
+                            <option value="2">NO</option>
+                        </select>
+                        <div v-if="dog === '1'">
+                            <input v-model="d_name" type="text" class="form-control form-control-sm mb-3"
+                                   :class="{ 'is-invalid': ndisinvalid }" placeholder="Name of the dog">
+                            <input v-model="d_bread" type="text" class="form-control form-control-sm mb-3"
+                                   :class="{ 'is-invalid': bdisinvalid }" placeholder="Breed of the dog">
+                            <input v-model="d_bdate" type="text" class="form-control form-control-sm mb-3"
+                                   :class="{ 'is-invalid': bddisinvalid }" placeholder="Dog’s birth year">
+                            <select v-model="sick" class="form-control bs-select js-bselectified mb-3"
+                                    :class="{ 'is-invalid': scisinvalid }" data-style="select-form-control border"
+                                    tabindex="null">
+                                <option value="0">--- Is your dog suffering from any medical condition? ---</option>
+                                <option value="1">YES</option>
+                                <option value="2">NO</option>
+                            </select>
+                            <div v-if="sick === '1'">
+                                <textarea v-model="sick_text" placeholder="Please precise"
+                                          :class="{ 'is-invalid': tisinvalid }" class="form-control mb-3"
+                                          rows="2"></textarea>
+                            </div>
+                            <br>
+                        </div>
+                        <select v-if="dog === '2'" v-model="adopt" class="form-control bs-select js-bselectified mb-3"
+                                :class="{ 'is-invalid': aisinvalid }" data-style="select-form-control border"
+                                tabindex="null">
+                            <option value="0">--- Would you like to adopt a dog one day? ---</option>
+                            <option value="true">YES</option>
+                            <option value="false">NO</option>
+                        </select>
+                        <div>
+                            <button @click="send_forms_data()" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    <script src="{% static 'assets/myjs/regstr.js'%}"></script>
+    {% endblock content %}
