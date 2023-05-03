@@ -9,21 +9,21 @@
             <div class="col-12 col-lg-4 d-lg-flex">
             </div>
             <div class="col-12 col-lg-8 d-lg-flex">
-                    <div class="bs-validate p-5 align-self-center rounded d-inline-block bg-white text-dark w-100 max-w-600">
-                        <input v-model="name" type="text" class="form-control form-control-sm mb-3"
-                               :class="{ 'is-invalid': nisinvalid }" placeholder="Name">
-                        <input v-model="surname" type="text" class="form-control form-control-sm mb-3"
-                               :class="{ 'is-invalid': sisinvalid }" placeholder="Surname">
-                        <input type="text" placeholder="Birth date" :class="{ 'is-invalid': bisinvalid }"
-                               class="get form-control datepicker"
-                               data-layout-rounded="false"
-                               data-show-weeks="true"
-                               data-today-highlight="true"
-                               data-today-btn="true"
-                               data-clear-btn="false"
-                               data-autoclose="true"
-                               data-format="MM/DD/YYYY"
-                               v-bind:data-quick-locale='{
+                <div class="bs-validate p-5 align-self-center rounded d-inline-block bg-white text-dark w-100 max-w-600">
+                    <input v-model="name" type="text" class="form-control form-control-sm mb-3"
+                           :class="{ 'is-invalid': nisinvalid }" placeholder="Name">
+                    <input v-model="surname" type="text" class="form-control form-control-sm mb-3"
+                           :class="{ 'is-invalid': sisinvalid }" placeholder="Surname">
+                    <input type="text" placeholder="Birth date" :class="{ 'is-invalid': bisinvalid }"
+                           class="get form-control datepicker"
+                           data-layout-rounded="false"
+                           data-show-weeks="true"
+                           data-today-highlight="true"
+                           data-today-btn="true"
+                           data-clear-btn="false"
+                           data-autoclose="true"
+                           data-format="MM/DD/YYYY"
+                           v-bind:data-quick-locale='{
 															"days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
 															"daysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
 															"daysMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
@@ -33,77 +33,192 @@
 															"clear": "Clear",
 															"titleFormat": "MM yyyy"
 														}'>
-                        <br>
-                        <select v-model="sex" class="form-control bs-select js-bselectified mb-3"
-                                :class="{ 'is-invalid': sisinvalid }" data-style="select-form-control border"
-                                tabindex="null">
-                            <option value="0">--- Sex ---</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            <option value="3">prefer not to say</option>
-                        </select>
-                        <div class="row">
-                            <div class="col-12 col-lg-5">
-                                <input v-model="code" type="text" class="form-control form-control-sm mb-3"
-                                       :class="{ 'is-invalid': cisinvalid }" placeholder="Phone country code">
-                            </div>
-                            <div class="col-12 col-lg-7">
-                                <input v-model="phone" type="text" class="form-control form-control-sm mb-3"
-                                       :class="{ 'is-invalid': pisinvalid }" placeholder="Phone number">
-                            </div>
+                    <br>
+                    <select v-model="sex" class="form-control bs-select js-bselectified mb-3"
+                            :class="{ 'is-invalid': sisinvalid }" data-style="select-form-control border"
+                            tabindex="null">
+                        <option value="0">--- Sex ---</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">prefer not to say</option>
+                    </select>
+                    <div class="row">
+                        <div class="col-12 col-lg-5">
+                            <input v-model="code" type="text" class="form-control form-control-sm mb-3"
+                                   :class="{ 'is-invalid': cisinvalid }" placeholder="Phone country code">
                         </div>
-                        <input v-model="email" type="text" class="form-control form-control-sm mb-3"
-                               :class="{ 'is-invalid': eisinvalid }" placeholder="Email">
-                        <select v-model="shrt" class="form-control bs-select js-bselectified mb-3"
-                                :class="{ 'is-invalid': shisinvalid }" data-style="select-form-control border"
+                        <div class="col-12 col-lg-7">
+                            <input v-model="phone" type="text" class="form-control form-control-sm mb-3"
+                                   :class="{ 'is-invalid': pisinvalid }" placeholder="Phone number">
+                        </div>
+                    </div>
+                    <input v-model="email" type="text" class="form-control form-control-sm mb-3"
+                           :class="{ 'is-invalid': eisinvalid }" placeholder="Email">
+                    <select v-model="shrt" class="form-control bs-select js-bselectified mb-3"
+                            :class="{ 'is-invalid': shisinvalid }" data-style="select-form-control border"
+                            tabindex="null">
+                        <option value="0">--- Size of T-Shirt ---</option>
+                        <option value="1">S</option>
+                        <option value="2">M</option>
+                        <option value="3">L</option>
+                    </select>
+                    <select v-model="dog" class="form-control bs-select js-bselectified mb-3"
+                            :class="{ 'is-invalid': disinvalid }" data-style="select-form-control border"
+                            tabindex="null">
+                        <option value="0">--- Are you going to run together with your dog? ---</option>
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                    <div v-if="dog === '1'">
+                        <input v-model="d_name" type="text" class="form-control form-control-sm mb-3"
+                               :class="{ 'is-invalid': ndisinvalid }" placeholder="Name of the dog">
+                        <input v-model="d_bread" type="text" class="form-control form-control-sm mb-3"
+                               :class="{ 'is-invalid': bdisinvalid }" placeholder="Breed of the dog">
+                        <input v-model="d_bdate" type="text" class="form-control form-control-sm mb-3"
+                               :class="{ 'is-invalid': bddisinvalid }" placeholder="Dog’s birth year">
+                        <select v-model="sick" class="form-control bs-select js-bselectified mb-3"
+                                :class="{ 'is-invalid': scisinvalid }" data-style="select-form-control border"
                                 tabindex="null">
-                            <option value="0">--- Size of T-Shirt ---</option>
-                            <option value="1">S</option>
-                            <option value="2">M</option>
-                            <option value="3">L</option>
-                        </select>
-                        <select v-model="dog" class="form-control bs-select js-bselectified mb-3"
-                                :class="{ 'is-invalid': disinvalid }" data-style="select-form-control border"
-                                tabindex="null">
-                            <option value="0">--- Are you going to run together with your dog? ---</option>
+                            <option value="0">--- Is your dog suffering from any medical condition? ---</option>
                             <option value="1">YES</option>
                             <option value="2">NO</option>
                         </select>
-                        <div v-if="dog === '1'">
-                            <input v-model="d_name" type="text" class="form-control form-control-sm mb-3"
-                                   :class="{ 'is-invalid': ndisinvalid }" placeholder="Name of the dog">
-                            <input v-model="d_bread" type="text" class="form-control form-control-sm mb-3"
-                                   :class="{ 'is-invalid': bdisinvalid }" placeholder="Breed of the dog">
-                            <input v-model="d_bdate" type="text" class="form-control form-control-sm mb-3"
-                                   :class="{ 'is-invalid': bddisinvalid }" placeholder="Dog’s birth year">
-                            <select v-model="sick" class="form-control bs-select js-bselectified mb-3"
-                                    :class="{ 'is-invalid': scisinvalid }" data-style="select-form-control border"
-                                    tabindex="null">
-                                <option value="0">--- Is your dog suffering from any medical condition? ---</option>
-                                <option value="1">YES</option>
-                                <option value="2">NO</option>
-                            </select>
-                            <div v-if="sick === '1'">
+                        <div v-if="sick === '1'">
                                 <textarea v-model="sick_text" placeholder="Please precise"
                                           :class="{ 'is-invalid': tisinvalid }" class="form-control mb-3"
                                           rows="2"></textarea>
-                            </div>
-                            <br>
-                        </div>
-                        <select v-if="dog === '2'" v-model="adopt" class="form-control bs-select js-bselectified mb-3"
-                                :class="{ 'is-invalid': aisinvalid }" data-style="select-form-control border"
-                                tabindex="null">
-                            <option value="0">--- Would you like to adopt a dog one day? ---</option>
-                            <option value="true">YES</option>
-                            <option value="false">NO</option>
-                        </select>
-                        <div>
-                            <button @click="send_forms_data()" class="btn btn-primary btn-block">Register</button>
                         </div>
                         <br>
                     </div>
+                    <select v-if="dog === '2'" v-model="adopt" class="form-control bs-select js-bselectified mb-3"
+                            :class="{ 'is-invalid': aisinvalid }" data-style="select-form-control border"
+                            tabindex="null">
+                        <option value="0">--- Would you like to adopt a dog one day? ---</option>
+                        <option value="true">YES</option>
+                        <option value="false">NO</option>
+                    </select>
+                    <div class="clearfix bg-light position-relative rounded p-4 mb-4">
+								<label class="form-checkbox form-checkbox-primary">
+									<input v-model="check"  :class="{ 'is-invalid': cheisinvalid }" type="checkbox" name="checkbox">
+									<i></i>
+									<span>
+<!--                                        <button type="button" class="btn btn-primary btn-soft mb-3" data-toggle="modal" data-target="#exampleModalXl">-->
+<!--											<i class="fi fi-mollecules"></i>-->
+<!--											Extra Large-->
+<!--										</button>-->
+										By clicking here, I agree to the  <a href='' data-toggle="modal" data-target="#exampleModalXl">Event Liability Policy</a>. and <a href="#!">Privacy Policy</a>.
+
+									</span>
+								</label>
+                    </div>
+                    <div>
+                        <button @click="send_forms_data()" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                    <br>
+
                 </div>
+
             </div>
+        </div>
+<div class="modal fade" id="exampleModalXl" tabindex="-1" aria-labelledby="exampleModalLabelXl" style="display: none;" aria-hidden="true">
+											<div class="modal-dialog modal-xl" role="document">
+												<div class="modal-content">
+
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabelXl"></h5>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<span class="fi fi-close fs--18" aria-hidden="true"></span>
+														</button>
+													</div>
+
+													<div class="modal-body">
+
+<p>1. Introduction <br>
+1.1 This Run for Dogs Privacy Policy ("Policy") sets out how Move With Love Events L.L.C, whose registered office is in Dubai, UAE (hereinafter "Run for Dogs", "we", "us", "our") collect and process personal information about you when you visit our websites ("Website"), attend or participate in one of our events. By continuing to use this Website, you confirm that you have read this Policy.<br>
+1.2 If we change anything important about this Policy (the information we collect, how we use it or why we use it) we will highlight those changes at the top of the Policy and provide a prominent link to it for 30 days following the change and prior to the change taking effect.<br><br>
+2. Information we collect<br>
+2.1 Information you give us. You may give us information, including information that can identify you ("personal information"), when you use our Website, correspond with us, enter into any of our events, promotions or surveys, post on our websites, subscribe to receive our newsletter, purchase our goods or services, book events via the Website or when you communicate with us and at us through one of our social media platforms. Where we request required information from you, we will collect the information contained in the relevant forms or pages. You may choose to provide additional information to us when you contact us or otherwise interact with us.<br>
+2.2 If you are a regular user of our Website, you may wish to create an Account ("Account") with us. The information that you provide when setting up your Account may include your name, Account username, email address, gender, country of residence, telephone number or if applicable, your social media credentials. If you register to hold an Account with us, you will also create a unique password, which enables you to access your Account.<br>
+2.3 If you purchase any services or other goods on our Website, we will also collect your delivery address, billing address, and payment information. Please note that we will not be storing your payment information, this will be done via a third-party payments company.<br>
+2.4 If you subscribe to receive one of our newsletters or receive other forms of direct communications from us, then you may provide us with your name, email address, gender, date of birth and interests.<br>
+2.5 When you use our Websites or Apps, we may use your personal information to create specialized recommendations to enhance your user experience. This can include recommending content for you to watch based on your viewing history or Facebook "likes" and interests (as applicable). We will not collect your Facebook, Twitter or Google+ username or password, but we may collect details from these websites that confirm whether you are logged in to the App using your Facebook, Twitter or Google+ accounts. This information is used to access and extract certain information about you from your Facebook, Twitter or Google+ profiles to enhance your user experience and provide you with meaningful content. This is information that you make available to the public on your profile. We do not access your personal account settings.<br><br>
+3. Why do we use your information<br>
+3.1 We use the information we collect in order to provide you with the best possible experience when you access our Website and engage with us, including by using our services and products. This includes using your information for the following purposes:<br>
+(a) providing and improving our products and services: we use your information in order to provide you with the products and services you have requested, including when making a purchase, booking an event, sending you confirmation emails or contacting you regarding your Account. We use your information to improve and adapt our Website, products and services to better suit the behaviors and technical capabilities of our users;<br>
+(b) creating and managing your Account: we use your information in order to create your Account and manage our relationship with you. We also use your information to communicate with you regarding your Account and our services;<br>
+(c) administering the Website and Apps: we use your information in order to administer our Website and Apps for internal operations, including troubleshooting purposes, and to understand any errors you may encounter when using our Website and Apps;<br>
+(d) improving the use and content of our web pages: we use your information in order to improve the content of our web pages and Apps and ensure that it is presented in the most effective manner for you and your devices;<br>
+(e) safety and security: we use information collected on our Website and Apps as part of our efforts to keep our Website and Apps safe and secure and to help manage and administer our IT systems. We use information collected through our security systems to help keep our premises and individuals attending our events safe and secure.<br>
+(f) marketing: we use your information in order to communicate with you and keep you up to date with our activities and events and those of third parties that you may be interested in and to make suggestions and recommendations to you on our Website and Apps about goods or services that may interest you. We will provide you with this information via email (subject to your prior consent if legally required), push notifications on our Apps, personalized notifications on our websites, targeted ads on our Website and Apps and third-party platforms, text, social media or telephone;<br>
+(g) online advertising: we use your information in order to measure or understand the effectiveness of advertising we serve to you and others, and to deliver relevant advertising to you. We also use your information when communicating with you through social media in order to build and maintain our social media brand;<br>
+(h) personalizing and tailoring your experience: where permitted by law, we may combine information we receive from third-party sources, including from social media websites, with information you give to us and information we collect about you, including cookie and web beacon information. We may use this information and the combined information for learning more about your preferences as our customer, for enhancing your user experience on our Website and Apps and for providing you with information, content and offerings tailored to your needs;<br>
+(i) providing a consistent experience across devices and platforms: we will match information collected from and provided by you on one device or platform with information collected from and provided by you on other devices and platforms;<br>
+(j) providing customer service and managing any complaints or requests: we may use your information in order to provide you with a more efficient customer care service and manage any complaints or requests on your behalf;<br>
+(k) to make necessary disclosures and law enforcement: we may use your information in order to make necessary disclosures in response to requests which We are legally required to comply with, to law enforcement or regulatory authority, body or agency or in the defense of legal claims. Furthermore, to enforce our Terms and Conditions and/or this Policy; and
+(l) administering a sale, transfer, or reorganization of one of our business entities.<br><br>
+4. Legal grounds for using your information<br>
+4.1 Our processing of your personal information will be based on a variety of legal grounds, including:<br>
+(a) where you have provided your consent: for example, we require your consent in order to process your personal information for direct marketing activities, when using technology such as cookies, or when processing special categories of data such as your dietary requirements;<br>
+(b) where the processing is necessary for the performance of a contract: for example, to allow us to facilitate an event booking, deliver goods you have ordered on our web shop or facilitate an in-App purchase;<br>
+(c) where we need to comply with a legal obligation: for example, we may need to disclose your data to a law enforcement agency or to your or our representatives acting in a legal dispute; and<br>
+(d) where the processing is necessary for the purposes of our legitimate interests: this includes, for example, to: (1) provide our products and services to you; (2) ensure your Account is adequately protected and to ensure that our Website, Apps, network and information technology are secure and are being used in an appropriate manner; (3) better understand how you use our products, services Apps and Website and to make improvements; (4) research and analyse the products and services you want; (5) tailor our content, marketing, promotions and offers to those more relevant to your interests; (6) maintain a profile on both traditional and social media; (7) efficiently communicate and conduct social analytics and content performance on social media; (8) provide security over our business and who we partner with and to monitor the areas around and within our premises to safeguard our employees, customers and members of the public against wrongdoing or criminal activity; (9) develop and maintain relationships with vendors, partners and other companies and dealing with individuals who work for them; (10) to remain aware of updated market practice to ensure that we are offering a service which is competitive and meets the expectations of our customers; and (11) determine the effectiveness of advertising on our Website, Apps and on partner websites. In some jurisdictions, this type of processing requires consent. We will obtain your consent where we are legally required to do so.<br><br>
+5. How we share and disclose your information<br>
+5.1 We may share your information with third parties, which include third-party online platforms, social media platforms, organizations providing a service to us or acting as our agents, including, but not limited to, sub-contractors (including their agents) and professional advisers, advertising agencies, ad networks, IT suppliers, database providers, backup and disaster recovery specialists, email providers and other service providers necessary for improving our products and services.<br>
+5.2 We will:<br>
+(a) share aggregated, anonymized, or other de-identified data with advertisers, advertising networks, and social networks that require the data to select and serve relevant adverts to you and others. We will also use aggregate information to help advertisers reach the kind of audience they want to target;<br>
+(b) make use of the personal information we have collected from you to help our advertisers display their advertisements to a target audience and to present our promotional messages to you including using Facebook Custom Audience and Google Customer Match. This means you will be presented with advertisements that are more relevant to you as a result of the personal information we hold about you; and<br>
+(c) share your personal data with and access information from analytics and search engine providers that assist us in the improvement and optimization of the Website and Apps for better personalization of content and advertising.<br>
+5.3 Our suppliers and service providers will be required to meet our standards for processing information and security. The information we provide them, including your personal information, will only be provided in connection with the performance of their function. They will not be permitted to use your personal data for any purposes other than those outlined in this Policy.<br><br>
+6. How to opt-in or opt out of direct marketing<br>
+6.1 We, and selected third parties, may use the information you give us on our Website and through our Apps for direct marketing purposes to provide updates, newsletters, information about events, or other communications that we think may interest you.<br>
+6.2 We will offer you the option to unsubscribe from every communication sent.<br>
+6.3 You may object to receiving direct marketing from us at any time by contacting us by email at the email address detailed below in section 17 or selecting the unsubscribe option in our email communications.<br><br>
+7. Analysis and advertising tools<br>
+7.1 To ensure our online advertising is tailored and interesting for you, we analyze your behavior on our sites, partner websites, our Apps, and your interactions with us. For example, we track when you click articles or our adverts (which are on our websites and third-party websites), when you interact with us on social media (by mentioning us or our products), when you directly communicate with us (which may include communicating with our chatbot tools which are used across social media), when you buy tickets to one of our events when you buy products from us when you attend our events when you open and interact with our marketing communications and where you have come from to visit our Website<br><br>
+8. Cookies and other technologies<br>
+8.1 We collect information automatically through the use of "cookies". Cookies may be set by us, or they may be set by third parties. A cookie is a text file containing small amounts of information that a website can send to your browser, which may then be stored on your computer as a tag that distinguishes your computer but does not name you. Some of our Website pages use cookies to better serve you when you return to the Website. You can set your browser to notify you before you receive a cookie, giving you the chance to decide whether to accept it. You can decide which Cookies we activate in our Cookie Settings<br>
+8.2 We also make use of "web beacons" also commonly known as "single-pixel GIFs", "clear GIFs" or "tags". Web beacons are small graphic images that may be included on our Website. Web beacons allow us to optimize our products and services and provide us and third-party partners with analytics information, such as how many visitors our Website receives. We may also use web beacons in our email correspondence to determine whether you open them or take any further action. We also work with other organizations to place our web beacons on their websites or in their advertisements.<br><br>
+9. Links to other websites and social media<br>
+9.1 Where we provide links to other websites, we do so for information purposes only. The other websites are outside our control and are not covered by this Policy. If you access other websites using the links provided, the operators of these websites may collect information from you which will be used by them in accordance with their privacy policy, which may differ from ours.<br>
+9.2 On some pages of our Website, third parties that provide content, applications, or plug-ins through our Website may track your use of content, applications, and plug-ins or customize content, applications, and plug-ins for you. For example, when you share an article using a social media sharing button on our Website (e.g., Facebook, Twitter, or Google Plus), the social network that has created the button will record that you have done this.<br><br>
+10. Data retention<br>
+10.1 We will not retain your information for longer than is necessary for our business purposes or for legal or regulatory requirements.<br>
+10.2 We retain your information in accordance with our internal data retention procedures.<br>
+10.3 If you object to or opt out of receiving direct marketing communications from us, we will remove your marketing permissions to ensure that you do not receive any future marketing communications from us. Also, we will not delete personal data if relevant to an investigation or a dispute. It will continue to be stored until those issues are fully resolved.<br>
+10.4 In all cases, we will continue to protect your personal data in accordance with the terms of this Policy. We will also routinely refresh our information to ensure we keep it up-to-date.<br><br>
+11. Your rights<br>
+11.1 Subject to applicable law, you may have the following rights, in certain circumstances, in relation to your personal information:<br>
+(a) Right to access your personal information. If you wish to obtain a copy of the personal information that we hold about you, please contact us at the email address stated below. Before responding to your request, we may ask you to verify your identity and provide further details about your request. We will endeavor to respond within an appropriate timeframe and, in any event, within any timescales required by law.<br>
+(b) Right to rectify, erase or restrict the processing of your personal information. If you wish to rectify, erase or restrict the processing of your personal information please contact us at the email address stated below. It is your responsibility to ensure that you submit true, accurate, and complete information to us and keep this information up to date.<br>
+(c) Right to withdraw consent. Where you have provided your consent to the processing, you may withdraw your consent at any time by contacting us at the email address stated below in section 15.<br>
+(d) Right to data portability. You can ask us to help you move some of your information to other companies. To help with that you have a right to ask that we provide your information in an easily readable format to another company. You can email your request to the email address stated below.<br>
+(e) Right to object. You can object to the way we process your personal information or object to direct marketing based on profiling where this is based on legitimate interests, by emailing your request to the email address stated below.<br>
+(f) Right not to be subject to an automated decision (see section 12 below for more details).<br>
+(g) Right to lodge a complaint with a supervisory authority. You can get in touch with your local regulator if you have a complaint in relation to how we handle your personal information.<br>
+11.2 If you would like to exercise any of your rights listed above, you can contact us at the email address detailed in section 15.<br><br>
+12. Profiling<br>
+12.1 We may use your data in order to try and learn more about you so that we can aim to better predict what products and services you may be interested in.<br>
+12.2 On some of our e-commerce websites, we engage service providers who use automated decision-making in order to verify your address and assess your creditworthiness. This allows us to ensure we use correct address data and to evaluate the risk of non-payment for our products and services.<br><br>
+13. Information security<br>
+13.1 We apply physical, technical, and administrative measures to protect your personal information that is under our control from unauthorized access, collection, use, disclosure, copying, modification, or disposal. All information you provide to us is stored on secure servers.<br><br>
+14. Changes to the Policy<br>
+14.1 This Policy was last updated on May 1, 2023. A notice will be displayed for 30 days whenever this Policy is changed in a material way. By continuing to use our Website, you confirm your acceptance of the relevant changes.<br><br>
+15. Questions, Concerns, Complaints about this Policy and DPO Contact Details<br>
+    15.1 This Website is maintained by Move With Love Events L.L.C. If you have a question, concern, or complaint about this Policy or our handling of your information, you can contact us: hello@runfordogs.world </p>
+
+													</div>
+
+													<div class="modal-footer">
+
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">
+															<i class="fi fi-close"></i>
+															Close
+														</button>
+													</div>
+
+												</div>
+											</div>
+										</div>
 
     </div>
     <script src="{% static 'assets/myjs/regstr.js'%}"></script>
