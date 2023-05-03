@@ -16,7 +16,9 @@ let app = new Vue({
        eisinvalid:false,
        cisinvalid:false,
        tisinvalid:false,
+       cheisinvalid:false,
        name:null,
+       check:false,
        surname:null,
        bdate:null,
        sex:0,
@@ -51,10 +53,39 @@ let app = new Vue({
                 this.adopt=0
     },
 
-    send_forms_data(){
+    clear_invalid(){
+       this.nisinvalid=false
+       this.sisinvalid=false
+       this.bisinvalid=false
+       this.sisinvalid=false
+       this.scisinvalid=false
+       this.shisinvalid=false
+       this.pisinvalid=false
+       this.disinvalid=false
+       this.dnisinvalid=false
+       this.dbisinvalid=false
+       this.dbdisinvalid=false
+       this.eisinvalid=false
+       this.cisinvalid=false
+       this.tisinvalid=false
+       this.cheisinvalid=false
+    },
 
+    send_forms_data(){
+        this.clear_invalid()
         var bdate = document.getElementsByClassName('get')[0]['value'];
         count = 0
+        console.log(count)
+        if (this.check == false){
+            this.cheisinvalid = true
+            count+=1
+
+            this.$toastr.defaultTimeout = 3000;
+            this.$toastr.defaultPosition = "toast-top-right";
+            this.$toastr.defaultStyle = { "background-color": "red" },
+            this.$toastr.s("Sign agreements");
+
+        }
         if (this.name == null){
             this.nisinvalid = true
             count+=1
@@ -89,10 +120,11 @@ let app = new Vue({
             count+=1
         }
         else{
-            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,5}$/
+
             if(!this.email.match(pattern)) {
-		count+=1
-		this.eisinvalid = true
+                count+=1
+                this.eisinvalid = true
                 this.$toastr.defaultTimeout = 3000;
                 this.$toastr.defaultPosition = "toast-top-right";
                 this.$toastr.defaultStyle = { "background-color": "red" },
@@ -121,16 +153,14 @@ let app = new Vue({
             this.dbisinvalid = true
             count+=1
         }
-        if (this.dog == '1' && this.d_bdate == null){
-            this.dbdisinvalid = true
-            count+=1
-        }
-        ph = true
+//        if (this.dog == '1' && this.d_bdate == null){
+//            this.dbdisinvalid = true
+//            count+=1
+//        }
         if (this.phone != null){
             if (this.phone.length < 9 || this.phone.length > 12) {
-                ph = false
-		count+=1
-		this.pisinvalid = true
+                count+=1
+		        this.pisinvalid = true
                 console.log(this.phone.length )
                 this.$toastr.defaultTimeout = 3000;
                 this.$toastr.defaultPosition = "toast-top-right";
@@ -139,13 +169,12 @@ let app = new Vue({
             }
         }
 
-
         if (count == 0){
 
             data_request = {
                 name:this.name,
                 surname:this.surname,
-                bdate:bdate,
+                bdate:this.bdate,
                 sex:this.sex,
                 shrt:this.shrt,
                 phone:this.phone,
@@ -166,7 +195,7 @@ let app = new Vue({
                 const all_data = await response.data;
                 if (all_data == 'true'){
                     this.clear()
-                    window.location.replace("https://Run-for-dogs.zbni.co/u/HXR9m");
+                    window.location.replace("https://husk9-for-events-managing-99327.zbni.co/products/run-for-dogs-2k-race-in-damac-hills-2");
     //              this.$toastr.defaultTimeout = 3000;
     //              this.$toastr.defaultPosition = "toast-top-right";
     //              this.$toastr.defaultStyle = { "background-color": "green" },
