@@ -15,6 +15,7 @@ class Peoples(models.Model):
     dog_adopt = models.BooleanField( null=True)
     sick = models.BooleanField(null=True)
     sick_text = models.TextField(max_length=100, null=True)
+    time = models.DateTimeField(auto_now_add=True)
 
     # class Meta:
     #     verbose_name_plural = "Peoples"
