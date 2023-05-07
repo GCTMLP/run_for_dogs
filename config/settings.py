@@ -131,8 +131,4 @@ STATIC_ROOT = "/home/run/static"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'hello@runfordogs.world'
-EMAIL_HOST_PASSWORD = 'awckajxvqdyfdyqp'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+
