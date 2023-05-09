@@ -22,7 +22,7 @@
                            data-today-btn="true"
                            data-clear-btn="false"
                            data-autoclose="true"
-                           data-format="MM/DD/YYYY"
+                           data-format="DD.MM.YYYY"
                            v-bind:data-quick-locale='{
 															"days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
 															"daysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
@@ -102,19 +102,20 @@
 									<input v-model="check"  :class="{ 'is-invalid': cheisinvalid }" type="checkbox" name="checkbox">
 									<i></i>
 									<span>
-<!--                                        <button type="button" class="btn btn-primary btn-soft mb-3" data-toggle="modal" data-target="#exampleModalXl">-->
-<!--											<i class="fi fi-mollecules"></i>-->
-<!--											Extra Large-->
-<!--										</button>-->
 										By clicking here, I agree to the  <a href='' data-toggle="modal" data-target="#exampleModalXl">Privacy Policy</a> and <a href="#!" data-toggle="modal" data-target="#md2">Event Liability Policy</a>.
 
 									</span>
 								</label>
                     </div>
-                    <div>
+
+                    <div >
                         <button @click="send_forms_data()" class="btn btn-primary btn-block">Register</button>
                     </div>
                     <br>
+                     <div class="p-4 mb-4 clearfix bg-light position-relative rounded p-4 mb-4">
+                       <span> After payment, we will send you an email with the details of the race within 2 days. If you can't find the email, please check your spam folder. If you still haven't received the email, please write to us at <a href="mailto:hello@runfordogs.world">hello@runfordogs.world</a></span>
+                    </div>
+
 
                 </div>
 

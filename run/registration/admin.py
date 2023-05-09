@@ -2,6 +2,8 @@ from django.contrib import admin
 import csv
 import datetime
 from django.http import HttpResponse
+from datetime import datetime
+from rangefilter.filters import DateRangeFilterBuilder, DateTimeRangeFilterBuilder, NumericRangeFilterBuilder
 
 from .models import Peoples
 def export_to_csv(modeladmin, request, queryset):
@@ -26,12 +28,25 @@ def export_to_csv(modeladmin, request, queryset):
     return response
 export_to_csv.short_description = 'Export to CSV'
 
+
+
+
 #@admin.register(Peoples)
 class PeoplesAdmin(admin.ModelAdmin):
     #pass
     #model = Peoples
     list_display = ('id', 'name', 'surname', 'bdate', 'sex', 'phone', 'email', 'size_of_tshirt', 'with_dog', 'dog_name', 'dog_breed', 'dog_bdate', 'dog_adopt', 'sick', 'sick_text', 'time')
     actions = [export_to_csv]
+    list_filter = (
+        (
+            "time",
+            DateTimeRangeFilterBuilder(
+                title="Custom title",
+                default_start=datetime(2020, 1, 1),
+                default_end=datetime(2030, 1, 1),
+            ),
+        ),
+    )
 admin.site.register(Peoples, PeoplesAdmin)
 
 
