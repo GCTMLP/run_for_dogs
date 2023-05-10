@@ -1,6 +1,5 @@
 from django.contrib import admin
 import csv
-import datetime
 from django.http import HttpResponse
 from datetime import datetime
 from rangefilter.filters import DateRangeFilterBuilder, DateTimeRangeFilterBuilder, NumericRangeFilterBuilder
@@ -21,7 +20,7 @@ def export_to_csv(modeladmin, request, queryset):
             value = getattr(obj, field.name)
             if isinstance(value, bool):
                 value = 1 if value == True else 0
-            if isinstance(value, datetime.datetime):
+            if isinstance(value, datetime):
                 value = value.strftime('%d/%m/%Y %H:%M:%S')
             data_row.append(value)
         writer.writerow(data_row)
