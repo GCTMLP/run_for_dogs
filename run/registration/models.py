@@ -17,8 +17,5 @@ class Peoples(models.Model):
     sick_text = models.TextField(max_length=100, null=True)
     time = models.DateTimeField(auto_now_add=True)
 
-    # class Meta:
-    #     verbose_name_plural = "Peoples"
-
     def __str__(self):
         return self.name
