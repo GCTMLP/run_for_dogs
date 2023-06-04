@@ -158,7 +158,8 @@ let app = new Vue({
 //            count+=1
 //        }
         if (this.phone != null){
-            if (this.phone.length < 9 || this.phone.length > 12) {
+            var pattern_ph = /^\d{9,12}$/
+            if (!this.phone.match(pattern_ph) ) {
                 count+=1
 		        this.pisinvalid = true
                 console.log(this.phone.length )
@@ -168,13 +169,24 @@ let app = new Vue({
                 this.$toastr.s("incorrect phone format");
             }
         }
+        if (this.code != null){
+            var pattern_code = /^\+{0,1}\d{1,4}$/
+            if (!this.code.match(pattern_code) ) {
+                count+=1
+		        this.cisinvalid = true
+                this.$toastr.defaultTimeout = 3000;
+                this.$toastr.defaultPosition = "toast-top-right";
+                this.$toastr.defaultStyle = { "background-color": "red" },
+                this.$toastr.s("incorrect code format");
+            }
+        }
 
         if (count == 0){
 
             data_request = {
                 name:this.name,
                 surname:this.surname,
-                bdate:bdate,
+                bdate:this.bdate,
                 sex:this.sex,
                 shrt:this.shrt,
                 phone:this.phone,

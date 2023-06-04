@@ -2,9 +2,6 @@ from django.views.generic import View, TemplateView
 from django.http import JsonResponse
 import json
 from .models import Peoples
-from django.core.mail import send_mail
-from django.conf import settings
-from django.shortcuts import redirect
 
 class Register(TemplateView):
     template_name = 'mddle.html'
