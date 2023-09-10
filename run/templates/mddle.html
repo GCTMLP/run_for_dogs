@@ -97,6 +97,12 @@
                         <option value="true">YES</option>
                         <option value="false">NO</option>
                     </select>
+                      <select v-model="time_choose" class="form-control bs-select js-bselectified mb-3"
+                            :class="{ 'is-invalid': tcisinvalid }" data-style="select-form-control border"
+                            tabindex="null">
+                          <option value="0">--- Сhoose a time convenient for you? ---</option>
+                          <option v-for="time_a in time_availible" v-bind:value="time_a">{ time_a }</option>
+                        </select>
                     <div class="clearfix bg-light position-relative rounded p-4 mb-4">
                         <label class="form-checkbox form-checkbox-primary">
                             <input v-model="check" :class="{ 'is-invalid': cheisinvalid }" type="checkbox"

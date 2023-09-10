@@ -16,6 +16,7 @@ class Peoples(models.Model):
     sick = models.BooleanField(null=True)
     sick_text = models.TextField(max_length=100, null=True)
     time = models.DateTimeField(auto_now_add=True)
+    time_to_go = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.name

@@ -30,8 +30,29 @@ class SaveData(View):
                                 else False,
                                 sick = True if request['sick'] == '1'
                                 else False,
-                                sick_text = request['sick_text'])
+                                sick_text = request['sick_text'],
+                                time_to_go = request['time_choose'])
             form_data.save()
             return JsonResponse('true', safe=False)
         except Exception as e:
             return JsonResponse('false', safe=False)
+
+
+
+class TimeData(View):
+
+    def post(self, request):
+        data = Peoples.objects.all()
+        times = {
+            '17:00-17:30': 0,
+            '17:30-18:00': 0,
+            '18:00-18:30': 0,
+            '18:30-19:00': 0,
+            '19:00-19:30': 0,
+            '19:30-20:00': 0,
+        }
+        for man in data:
+            times[man.time_to_go] +=1
+        time_availible = [key for key, time in times.items() if time < 26]
+        return_data = json.dumps(time_availible)
+        return JsonResponse(return_data, safe=False)

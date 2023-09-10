@@ -17,6 +17,7 @@ let app = new Vue({
        cisinvalid:false,
        tisinvalid:false,
        cheisinvalid:false,
+       tcisinvalid:false,
        name:null,
        check:false,
        surname:null,
@@ -33,9 +34,24 @@ let app = new Vue({
        sick:0,
        sick_text:null,
        adopt:0,
+       time_availible:0,
+       time_choose:0,
    },
 
    methods: {
+     init: function() {
+        this.get_time();
+    },
+
+    get_time(){
+        axios.post("time_data/",{
+            'Accept': 'application/json'
+            }).then(async response => {
+                const all_data = await response.data;
+                this.time_availible = JSON.parse(all_data)
+                console.log(this.time_availible)
+            });
+    },
 
     clear(){
                 this.name=null
@@ -51,6 +67,7 @@ let app = new Vue({
                 this.d_bread=null
                 this.d_bdate=null
                 this.adopt=0
+                this.time_choose=0
     },
 
     clear_invalid(){
@@ -69,13 +86,15 @@ let app = new Vue({
        this.cisinvalid=false
        this.tisinvalid=false
        this.cheisinvalid=false
+       this.tcisinvalid=false
     },
+
+
 
     send_forms_data(){
         this.clear_invalid()
         var bdate = document.getElementsByClassName('get')[0]['value'];
         count = 0
-        console.log(count)
         if (this.check == false){
             this.cheisinvalid = true
             count+=1
@@ -115,6 +134,12 @@ let app = new Vue({
             this.pisinvalid = true
             count+=1
         }
+
+        if (this.time_choose == 0){
+            this.tcisinvalid = true
+            count+=1
+        }
+
         if (this.email == null){
             this.eisinvalid = true
             count+=1
@@ -143,6 +168,7 @@ let app = new Vue({
             this.tisinvalid = true
             count+=1
         }
+
 
         if (this.dog === '1' && this.d_name == null){
             this.dnisinvalid = true
@@ -199,6 +225,7 @@ let app = new Vue({
                 sick:this.sick,
                 sick_text:this.sick_text,
                 adopt:this.adopt,
+                time_choose:this.time_choose,
             }
 
             axios.post("save_data/", data_request, {
@@ -231,7 +258,9 @@ let app = new Vue({
     },
 
   },
-
+  mounted: function () {
+    this.init();
+  }
 })
 
 
