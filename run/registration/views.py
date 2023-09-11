@@ -20,17 +20,9 @@ class SaveData(View):
                                 sex = sex[int(request['sex'])-1],
                                 phone = request['code']+request['phone'],
                                 email = request['email'],
-                                size_of_tshirt = size[int(request['shrt'])-1],
-                                with_dog= True if request['dog'] == '1'
-                                else False,
+                                size_of_dog = size[int(request['shrt'])-1],
                                 dog_name = request['d_name'],
                                 dog_breed = request['d_bread'],
-                                dog_bdate = request['d_bdate'],
-                                dog_adopt = True if request['adopt'] == '1'
-                                else False,
-                                sick = True if request['sick'] == '1'
-                                else False,
-                                sick_text = request['sick_text'],
                                 time_to_go = request['time_choose'])
             form_data.save()
             return JsonResponse('true', safe=False)

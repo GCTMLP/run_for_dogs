@@ -35,9 +35,8 @@ class PeoplesAdmin(admin.ModelAdmin):
     #pass
     #model = Peoples
     list_display = ('id', 'name', 'surname', 'bdate', 'sex', 'phone', 'email',
-                    'size_of_tshirt', 'with_dog', 'dog_name', 'dog_breed',
-                    'dog_bdate', 'dog_adopt', 'sick', 'sick_text', 'time',
-                    'time_to_go')
+                    'size_of_dog', 'dog_name', 'dog_breed',
+                    'time', 'time_to_go')
     actions = [export_to_csv]
     list_filter = (
         (

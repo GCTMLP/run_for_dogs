@@ -6,16 +6,12 @@ let app = new Vue({
        sisinvalid:false,
        bisinvalid:false,
        sisinvalid:false,
-       scisinvalid:false,
        shisinvalid:false,
        pisinvalid:false,
-       disinvalid:false,
-       dnisinvalid:false,
-       dbisinvalid:false,
-       dbdisinvalid:false,
+       ndisinvalid:false,
+       bdisinvalid:false,
        eisinvalid:false,
        cisinvalid:false,
-       tisinvalid:false,
        cheisinvalid:false,
        tcisinvalid:false,
        name:null,
@@ -27,13 +23,8 @@ let app = new Vue({
        phone:null,
        code:null,
        email:null,
-       dog:0,
        d_name:null,
        d_bread:null,
-       d_bdate:null,
-       sick:0,
-       sick_text:null,
-       adopt:0,
        time_availible:0,
        time_choose:0,
    },
@@ -62,11 +53,9 @@ let app = new Vue({
                 this.code=null
                 this.phone=null
                 this.email=null
-                this.dog=0
                 this.d_name=null
                 this.d_bread=null
-                this.d_bdate=null
-                this.adopt=0
+
                 this.time_choose=0
     },
 
@@ -75,16 +64,12 @@ let app = new Vue({
        this.sisinvalid=false
        this.bisinvalid=false
        this.sisinvalid=false
-       this.scisinvalid=false
        this.shisinvalid=false
        this.pisinvalid=false
-       this.disinvalid=false
-       this.dnisinvalid=false
-       this.dbisinvalid=false
-       this.dbdisinvalid=false
+       this.ndisinvalid=false
+       this.bdisinvalid=false
        this.eisinvalid=false
        this.cisinvalid=false
-       this.tisinvalid=false
        this.cheisinvalid=false
        this.tcisinvalid=false
     },
@@ -130,6 +115,14 @@ let app = new Vue({
             this.shisinvalid = true
             count+=1
         }
+        if (this.d_name == null){
+            this.ndisinvalid = true
+            count+=1
+        }
+        if (this.d_bread == null){
+            this.bdisinvalid = true
+            count+=1
+        }
         if (this.phone == null){
             this.pisinvalid = true
             count+=1
@@ -139,6 +132,8 @@ let app = new Vue({
             this.tcisinvalid = true
             count+=1
         }
+
+
 
         if (this.email == null){
             this.eisinvalid = true
@@ -156,33 +151,8 @@ let app = new Vue({
                 this.$toastr.s("Invalid Email");
             }
         }
-        if (this.dog == 0){
-            this.disinvalid = true
-            count+=1
-        }
-        if (this.dog == '1' && this.sick == 0){
-            this.scisinvalid = true
-            count+=1
-        }
-        if (this.dog == '1' && this.sick == '1' && this.sick_text == null){
-            this.tisinvalid = true
-            count+=1
-        }
 
 
-        if (this.dog === '1' && this.d_name == null){
-            this.dnisinvalid = true
-            console.log(this.dog)
-            count+=1
-        }
-        if (this.dog === '1' && this.d_bread == null){
-            this.dbisinvalid = true
-            count+=1
-        }
-//        if (this.dog == '1' && this.d_bdate == null){
-//            this.dbdisinvalid = true
-//            count+=1
-//        }
         if (this.phone != null){
             var pattern_ph = /^\d{9,12}$/
             if (!this.phone.match(pattern_ph) ) {
@@ -218,13 +188,8 @@ let app = new Vue({
                 phone:this.phone,
                 code:this.code,
                 email:this.email,
-                dog:this.dog,
                 d_name:this.d_name,
                 d_bread:this.d_bread,
-                d_bdate:this.d_bdate,
-                sick:this.sick,
-                sick_text:this.sick_text,
-                adopt:this.adopt,
                 time_choose:this.time_choose,
             }
 

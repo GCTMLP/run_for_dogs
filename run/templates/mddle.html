@@ -54,53 +54,23 @@
                     </div>
                     <input v-model="email" type="text" class="form-control form-control-sm mb-3"
                            :class="{ 'is-invalid': eisinvalid }" placeholder="Email">
+                    <input v-model="d_name" type="text" class="form-control form-control-sm mb-3"
+                               :class="{ 'is-invalid': ndisinvalid }" placeholder="Name of the dog">
+                    <input v-model="d_bread" type="text" class="form-control form-control-sm mb-3"
+                               :class="{ 'is-invalid': bdisinvalid }" placeholder="Breed of the dog">
                     <select v-model="shrt" class="form-control bs-select js-bselectified mb-3"
                             :class="{ 'is-invalid': shisinvalid }" data-style="select-form-control border"
                             tabindex="null">
-                        <option value="0">--- Size of T-Shirt ---</option>
+                        <option value="0">--- Size of dog ---</option>
                         <option value="1">S</option>
                         <option value="2">M</option>
                         <option value="3">L</option>
                     </select>
-                    <select v-model="dog" class="form-control bs-select js-bselectified mb-3"
-                            :class="{ 'is-invalid': disinvalid }" data-style="select-form-control border"
-                            tabindex="null">
-                        <option value="0">--- Are you going to run together with your dog? ---</option>
-                        <option value="1">YES</option>
-                        <option value="2">NO</option>
-                    </select>
-                    <div v-if="dog === '1'">
-                        <input v-model="d_name" type="text" class="form-control form-control-sm mb-3"
-                               :class="{ 'is-invalid': ndisinvalid }" placeholder="Name of the dog">
-                        <input v-model="d_bread" type="text" class="form-control form-control-sm mb-3"
-                               :class="{ 'is-invalid': bdisinvalid }" placeholder="Breed of the dog">
-                        <input v-model="d_bdate" type="text" class="form-control form-control-sm mb-3"
-                               :class="{ 'is-invalid': bddisinvalid }" placeholder="Dog’s birth year">
-                        <select v-model="sick" class="form-control bs-select js-bselectified mb-3"
-                                :class="{ 'is-invalid': scisinvalid }" data-style="select-form-control border"
-                                tabindex="null">
-                            <option value="0">--- Is your dog suffering from any medical condition? ---</option>
-                            <option value="1">YES</option>
-                            <option value="2">NO</option>
-                        </select>
-                        <div v-if="sick === '1'">
-                                <textarea v-model="sick_text" placeholder="Please precise"
-                                          :class="{ 'is-invalid': tisinvalid }" class="form-control mb-3"
-                                          rows="2"></textarea>
-                        </div>
-                        <br>
-                    </div>
-                    <select v-if="dog === '2'" v-model="adopt" class="form-control bs-select js-bselectified mb-3"
-                            :class="{ 'is-invalid': aisinvalid }" data-style="select-form-control border"
-                            tabindex="null">
-                        <option value="0">--- Would you like to adopt a dog one day? ---</option>
-                        <option value="true">YES</option>
-                        <option value="false">NO</option>
-                    </select>
+
                       <select v-model="time_choose" class="form-control bs-select js-bselectified mb-3"
                             :class="{ 'is-invalid': tcisinvalid }" data-style="select-form-control border"
                             tabindex="null">
-                          <option value="0">--- Сhoose a time convenient for you? ---</option>
+                          <option value="0">--- Choose a time slot when you want to participate ---</option>
                           <option v-for="time_a in time_availible" v-bind:value="time_a">{ time_a }</option>
                         </select>
                     <div class="clearfix bg-light position-relative rounded p-4 mb-4">
@@ -430,16 +400,16 @@
                 <div class="modal-body">
                     <p>
 
-                        Event at Damac Hills 2 by Run For Dogs & Husk9 at 14.05.2023<br><br>
+                        Event at Damac Hills 2 by Run For Dogs & Husk9 at 30.09.2023<br><br>
 
                         You are going to attend a pet-friendly event at Damac Hills 2 organized by Run For Dogs (trade
                         license name: Move with Love) and Husk9 at 14.05.2023<br><br>
 
                         The following agreement applies to your attendance with pet(s). <br><br>
 
-                        I wish to bring my pet(s) into a dog-friendly event brought by Run For Dogs (trade license name:
-                        Move with Love) and by Husk9 at Damac Hills 2 (hereafter referred to as the “event”), and l
-                        agree to the following:<br><br>
+                      I wish to bring my pet(s) into a dog-friendly event brought by Run For Dogs (trade license name:
+                        Move with Love) and by Husk9 at Town Square (hereafter referred to as the “event”), and l agree
+                        to the following:<br><br>
 
                         1. My pet(s) must be up-to-date on vaccinations, non-aggressive, sociable with other dogs, not
                         in heat, and free from contagious diseases or conditions that could endanger other
@@ -519,17 +489,9 @@
                         photos taken by other participants or spectators during the event.
                         By participating in the race event, you agree to release the event organizers from any liability
                         in connection with the use of your photos as described in this rule.
-                        This waiver applies to all guests and their pets attending the event from the event date. Thank
-                        you for complying with these policies.<br><br>
+                       This waiver applies to all guests and their pets attending the event from the event date.
+                        Thank you for complying with these policies.<br><br>
 
-                        _____________________<br>
-                        Name & surname <br><br>
-
-                        _____________________<br>
-                        Date<br><br>
-
-                        _____________________<br>
-                        Signature
 
 
                     </p>
