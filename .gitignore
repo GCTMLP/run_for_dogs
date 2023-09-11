@@ -9,4 +9,4 @@ static/assets/media
 static/assets/vendor
 staticfiles
 wsgi.sock
-
+run/registration/migrations
