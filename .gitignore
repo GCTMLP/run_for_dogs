@@ -2,4 +2,11 @@
 db.sqlite3
 .idea
 .css
-.js
+static/assets/js
+static/assets/css
+static/assets/fonts
+static/assets/media
+static/assets/vendor
+staticfiles
+wsgi.sock
+

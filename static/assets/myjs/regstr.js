@@ -234,7 +234,7 @@ let app = new Vue({
                 const all_data = await response.data;
                 if (all_data == 'true'){
                     this.clear()
-                    window.location.replace("https://Run-for-dogs.zbni.co/u/HXR9m");
+                    window.location.replace("https://husk9-for-events-managing-99327.zbni.co/u/ARB0g");
     //              this.$toastr.defaultTimeout = 3000;
     //              this.$toastr.defaultPosition = "toast-top-right";
     //              this.$toastr.defaultStyle = { "background-color": "green" },
