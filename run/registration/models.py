@@ -12,6 +12,7 @@ class Peoples(models.Model):
     dog_breed = models.CharField(max_length=100, null=True)
     time = models.DateTimeField(auto_now_add=True)
     time_to_go = models.CharField(max_length=100, null=True)
+    send_mail = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

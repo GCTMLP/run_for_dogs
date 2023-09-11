@@ -78,7 +78,7 @@ let app = new Vue({
 
     send_forms_data(){
         this.clear_invalid()
-        var bdate = document.getElementsByClassName('get')[0]['value'];
+        this.bdate = document.getElementsByClassName('get')[0]['value'];
         count = 0
         if (this.check == false){
             this.cheisinvalid = true
@@ -98,8 +98,7 @@ let app = new Vue({
             this.sisinvalid = true
             count+=1
         }
-        if (bdate === ''){
-            console.log(bdate)
+        if (this.bdate === ''){
             this.bisinvalid = true
             count+=1
         }
@@ -192,7 +191,7 @@ let app = new Vue({
                 d_bread:this.d_bread,
                 time_choose:this.time_choose,
             }
-
+            console.log(data_request)
             axios.post("save_data/", data_request, {
             'Accept': 'application/json'
             }).then(async response => {
