@@ -41,10 +41,9 @@ class TimeData(View):
             '18:00-18:30': 0,
             '18:30-19:00': 0,
             '19:00-19:30': 0,
-            '19:30-20:00': 0,
         }
         for man in data:
             times[man.time_to_go] +=1
-        time_availible = [key for key, time in times.items() if time < 26]
+        time_availible = [key for key, time in times.items() if time < 36]
         return_data = json.dumps(time_availible)
         return JsonResponse(return_data, safe=False)
