@@ -13,9 +13,11 @@ let app = new Vue({
        eisinvalid:false,
        cisinvalid:false,
        cheisinvalid:false,
+       che2isinvalid:false,
        tcisinvalid:false,
        name:null,
        check:false,
+       check2:false,
        surname:null,
        bdate:null,
        sex:0,
@@ -71,6 +73,7 @@ let app = new Vue({
        this.eisinvalid=false
        this.cisinvalid=false
        this.cheisinvalid=false
+       this.che2isinvalid=false
        this.tcisinvalid=false
     },
 
@@ -82,6 +85,16 @@ let app = new Vue({
         count = 0
         if (this.check == false){
             this.cheisinvalid = true
+            count+=1
+
+            this.$toastr.defaultTimeout = 3000;
+            this.$toastr.defaultPosition = "toast-top-right";
+            this.$toastr.defaultStyle = { "background-color": "red" },
+            this.$toastr.s("Sign agreements");
+
+        }
+        if (this.check2 == false){
+            this.che2isinvalid = true
             count+=1
 
             this.$toastr.defaultTimeout = 3000;

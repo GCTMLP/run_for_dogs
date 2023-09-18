@@ -86,6 +86,18 @@
 									</span>
                         </label>
                     </div>
+                    <div class="clearfix bg-light position-relative rounded p-4 mb-4">
+                        <label class="form-checkbox form-checkbox-primary">
+                            <input v-model="check2" :class="{ 'is-invalid': che2isinvalid }" type="checkbox"
+                                   name="checkbox">
+                            <i></i>
+                            <span>
+										By clicking here, I confirm that I have read  <a href='' data-toggle="modal"
+                                                                             data-target="#exampleModalXl2">Disclamer</a>
+
+									</span>
+                        </label>
+                    </div>
 
                     <div>
                         <button @click="send_forms_data()" class="btn btn-primary btn-block">Register</button>
@@ -499,6 +511,40 @@
                 </div>
 
                 <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="fi fi-close"></i>
+                        Close
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalXl2" tabindex="-1" aria-labelledby="exampleModalLabelXl"
+             style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabelXl2">Disclamer</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="fi fi-close fs--18" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                            1. Responsibility for Your Dog: As a dog owner, you are solely responsible for the wellbeing, health, and safety of your dog(s) participating in the race. This includes ensuring that your dog is physically fit and healthy to participate in the event and that they are up-to-date on all necessary vaccinations.<br><br>
+    2. Training & Preparation: You are responsible for adequately training and preparing your dog for the race. This includes proper conditioning, socialization, and obedience training to ensure that your dog can participate safely in a group setting.<br><br>
+    3. Control of your dog: It is essential that you always maintain control over your dog during the race. This includes using a leash, harness, or any other necessary equipment to prevent your dog from running loose and causing harm to themselves or others.<br><br>
+    4. Health & Hydration: You must monitor your dog's physical condition and ensure they remain properly hydrated throughout the race. If you observe any signs of distress or injury, you must immediately withdraw your dog from the event.<br><br>
+    5. Interaction with other dogs: Be aware that this race may involve interaction with other dogs. You are responsible for managing your dog's behavior and ensuring that they do not engage in aggressive or disruptive behavior towards other participants and their dogs.<br><br>
+    6. Liability Release: By participating in the race, you agree to release the event organizers, sponsors, volunteers, and any associated parties from any liability for injuries, damages, or losses that may occur to you, your dog, or your property during the event.<br><br>
+    7. Compliance with Rules: You agree to comply with all rules and guidelines provided by the event organizers. Failure to do so may result in disqualification from the race.<br><br>
+                        <br><br><br><br>
+By participating in the dog race, you understand and accept the inherent risks associated with such an activity and agree to abide by the terms and conditions outlined in this disclaimer. You also affirm that you have read and understood this disclaimer in its entirety.
+                    </div>
+                         <div class="modal-footer">
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         <i class="fi fi-close"></i>
